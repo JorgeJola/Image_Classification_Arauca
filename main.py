@@ -27,7 +27,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
 @main.route('/', methods=["GET", "POST"])
-def image_etl():
+def image_classification():
     if request.method == "POST":
         if 'raster' not in request.files:
             flash("No file part")
@@ -51,7 +51,7 @@ def image_etl():
             view_shapefile(polygons_classif)
             return redirect(url_for('main.download_file', filename=os.path.basename(polygons_classif)))
         
-    return render_template('image_etl.html', success=False)
+    return render_template('image_classification.html', success=False)
 
 def segment_raster(input_path, municipality):
     with rasterio.open(input_path) as src:
