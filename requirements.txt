@@ -4,7 +4,7 @@ rasterio
 GeoPandas
 pandas
 numpy
-gdal==3.10
+GDAL==3.4.1
 scikit-image
 Shapely
 scikit-learn
