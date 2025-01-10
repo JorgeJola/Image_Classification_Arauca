@@ -54,6 +54,7 @@ def image_classification():
     return render_template('image_classification.html', success=False)
 
 def segment_raster(input_path, municipality):
+    print('Empezamos')
     with rasterio.open(input_path) as src:
         nbands = src.count
         width = src.width
@@ -79,7 +80,7 @@ def segment_raster(input_path, municipality):
 
             with rasterio.open(output_path, 'w', **profile) as dst:
                 dst.write(segments.astype(rasterio.float32), 1)
-
+    print('Terminamos segmentacion')
     return output_path
 
 municipality_shapefiles = {
@@ -119,7 +120,7 @@ def generate_shapefile(segmented_raster_path, municipality):
 
     # Guardar los archivos .shp, .shx, .dbf, etc.
     polygons.to_file(f"{output_path}")
-
+    print('Terminamos shapefile')
     return output_path
 
 municipality_dem = {
