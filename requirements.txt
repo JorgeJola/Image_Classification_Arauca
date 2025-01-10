@@ -1,0 +1,13 @@
+flask
+gunicorn
+rasterio
+GeoPandas
+pandas
+numpy
+GDAL
+scikit-image
+Shapely
+scikit-learn
+joblib
+folium
+psutil
